@@ -67,7 +67,7 @@ public class DownloadPDFInvoice extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.changeQuantity(quantity);
+        checkoutPage.changeQuantity(Integer.parseInt(quantity));
         Assert.assertTrue(checkoutPage.quantity
                 .getAttribute("value")
                 .contains(quantity));

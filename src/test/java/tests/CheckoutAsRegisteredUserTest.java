@@ -68,7 +68,7 @@ public class CheckoutAsRegisteredUserTest extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.changeQuantity(quantity);
+        checkoutPage.changeQuantity(Integer.parseInt(quantity));
     }
 
     @Test(priority = 5, dependsOnMethods = "UserCanChangeProductQuantityInShippingCart")
