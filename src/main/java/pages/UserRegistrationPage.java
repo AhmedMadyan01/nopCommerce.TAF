@@ -11,7 +11,7 @@ public class UserRegistrationPage {
     private static final By passwordTxtBox = By.id("Password");
     private static final By confirmPasswordTxtBox = By.id("ConfirmPassword");
     private static final By registerBtn = By.id("register-button");
-    private static final By registrationCompletedMessage = By.cssSelector("div.result");
+    public static final By registrationCompletedMessage = By.cssSelector("div.result");
 
     public static void userRegistration(String firstName, String lastName,
                                         String email, String password, String confirmPassword) {

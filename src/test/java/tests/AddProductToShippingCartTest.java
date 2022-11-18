@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.actions.ElementActions;
 import utilities.test_base.TestBase;
 
 public class AddProductToShippingCartTest extends TestBase {
@@ -20,8 +21,7 @@ public class AddProductToShippingCartTest extends TestBase {
         HomePage.openRegistrationPage();
         UserRegistrationPage.userRegistration(fname, lname, email,
                 password, password);
-        Assert.assertTrue(UserRegistrationPage.registrationCompletedMessage
-                .getText()
+        Assert.assertTrue(ElementActions.getText(UserRegistrationPage.registrationCompletedMessage)
                 .contains("Your registration completed"));
     }
 
@@ -29,31 +29,27 @@ public class AddProductToShippingCartTest extends TestBase {
     public void UserCanSearchProduct() {
         HomePage.openHomePage();
         SearchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(ProductDetailsPage.currentProduct
-                .getText()
+        Assert.assertTrue(ElementActions.getText(ProductDetailsPage.currentProduct)
                 .contains(product));
     }
 
     @Test(priority = 3, dependsOnMethods = "UserCanSearchProduct")
-    public void UserCanAddProductToShippingCart() throws InterruptedException {
+    public void UserCanAddProductToShippingCart() {
         ProductDetailsPage.addToCar();
         HomePage.openShoppingCart();
-        Assert.assertTrue(CheckoutPage.productName
-                .getText()
+        Assert.assertTrue(ElementActions.getText(CheckoutPage.productName)
                 .contains(product));
     }
 
     @Test(priority = 4, dependsOnMethods = "UserCanAddProductToShippingCart")
     public void UserCanChangeProductQuantityInShippingCart() {
-
         CheckoutPage.changeQuantity(Integer.parseInt(quantity));
     }
 
     @Test(priority = 5, dependsOnMethods = "UserCanChangeProductQuantityInShippingCart")
     public void UserCanRemoveProductFromShippingCart() {
         CheckoutPage.removeFormCart();
-        Assert.assertTrue(CheckoutPage.emptyCartCheck
-                .getText()
+        Assert.assertTrue(ElementActions.getText(CheckoutPage.emptyCartCheck)
                 .contains("Your Shopping Cart is empty!"));
     }
 }

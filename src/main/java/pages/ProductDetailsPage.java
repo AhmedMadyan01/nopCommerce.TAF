@@ -29,7 +29,7 @@ public class ProductDetailsPage {
         ElementActions.click(addToCartBtn);
     }
 
-    public void openAddReviewPage() {
+    public static void openAddReviewPage() {
         ElementActions.click(addYourReview);
     }
 
