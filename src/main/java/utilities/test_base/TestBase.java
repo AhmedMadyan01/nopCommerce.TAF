@@ -18,7 +18,7 @@ public abstract class TestBase {
             case "edge" -> DriverManager.launchEdge();
             default -> throw new IllegalStateException("Unexpected value: " + browserName);
         }
-        DriverManager.navigate("https://demo.nopcommerce.com/");
+        DriverManager.navigate(System.getProperty("nopCommerce_URL"));
     }
 
     @AfterMethod
