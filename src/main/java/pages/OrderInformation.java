@@ -1,25 +1,18 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-public class OrderInformation extends PageBase {
-    public OrderInformation(WebDriver driver) {
-        super(driver);
+public class OrderInformation   {
+    public static final By print = By.linkText("Print");
+    public static final By PDFInvoiceLink = By.linkText("PDF Invoice");
+
+
+    public static void printOrder(){
+        ElementActions.click(print);
     }
 
-    @FindBy(linkText = "Print")
-    WebElement print;
-
-    @FindBy(linkText = "PDF Invoice")
-    WebElement PDFInvoiceLink;
-
-    public void printOrder(){
-        clickOnElement(print);
-    }
-
-    public void downloadPDFInvoice(){
-        clickOnElement(PDFInvoiceLink);
+    public static void downloadPDFInvoice(){
+        ElementActions.click(PDFInvoiceLink);
     }
 }

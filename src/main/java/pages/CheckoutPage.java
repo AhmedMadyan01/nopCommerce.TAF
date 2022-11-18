@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import utilities.actions.ElementActions;
 
-public class CheckoutPage extends PageBase {
+public class CheckoutPage {
 
     public static final By updateShoppingBtn = By.name("updatecart");
     public static final By continueShoppingBtn = By.name("continueshopping");
@@ -50,7 +50,7 @@ public class CheckoutPage extends PageBase {
         ElementActions.sendKeys(billingNewAddressLastName, lName);
         ElementActions.clear(billingNewAddressEmail);
         ElementActions.sendKeys(billingNewAddressEmail, email);
-        ElementActions.selectByVisibleText(billingNewAddressCountryId,country);
+        ElementActions.selectByVisibleText(billingNewAddressCountryId, country);
         ElementActions.sendKeys(billingNewAddress_City, city);
         ElementActions.sendKeys(billingNewAddress_Address1, address);
         ElementActions.sendKeys(billingNewAddress_ZipPostalCode, zipCode);
@@ -72,7 +72,7 @@ public class CheckoutPage extends PageBase {
         ElementActions.sendKeys(billingNewAddressLastName, lName);
         ElementActions.clear(billingNewAddressEmail);
         ElementActions.sendKeys(billingNewAddressEmail, email);
-        ElementActions.selectByVisibleText(billingNewAddressCountryId,country);
+        ElementActions.selectByVisibleText(billingNewAddressCountryId, country);
         ElementActions.sendKeys(billingNewAddress_City, city);
         ElementActions.sendKeys(billingNewAddress_Address1, address);
         ElementActions.sendKeys(billingNewAddress_ZipPostalCode, zipCode);

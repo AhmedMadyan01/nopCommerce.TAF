@@ -1,66 +1,39 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
+import utilities.driver_manager.DriverManager;
 
-import java.util.concurrent.TimeUnit;
-
-public class ProductDetailsPage extends PageBase {
-    public ProductDetailsPage(WebDriver driver) {
-        super(driver);
-    }
-
-    @FindBy(css = "strong.current-item")
-    public WebElement currentProduct;
-
-    @FindBy(css = "input.button-2.email-a-friend-button")
-    WebElement emailFriendBtn;
-
-    @FindBy(id = "add-to-cart-button-4")
-    WebElement addToCartBtn;
-
-    @FindBy(id = "add-to-wishlist-button-4")
-    WebElement addToWishListBtn;
-
-    @FindBy(css = "input.button-2.add-to-compare-list-button")
-    WebElement addToCompareListBtn;
-
-    @FindBy(css = "div.prices")
-    public WebElement productPriceValue;
-
-    @FindBy(linkText = "Add your review")
-    WebElement addYourReview;
+public class ProductDetailsPage {
+    public static final By currentProduct = By.cssSelector("strong.current-item");
+    public static final By emailFriendBtn = By.cssSelector("input.button-2.email-a-friend-button");
+    public static final By addToCartBtn = By.id("add-to-cart-button-4");
+    public static final By addToWishListBtn = By.id("add-to-wishlist-button-4");
+    public static final By addToCompareListBtn = By.cssSelector("input.button-2.add-to-compare-list-button");
+    public static final By productPriceValue = By.cssSelector("div.prices");
+    public static final By addYourReview = By.linkText("Add your review");
 
     public void openEmailFriendPage() {
-        clickOnElement(emailFriendBtn);
+        ElementActions.click(emailFriendBtn);
     }
 
-    public void addToWishList() throws InterruptedException {
-        jse = (JavascriptExecutor) driver;
-        jse.executeScript("scrollBy(0,400)");
-        clickOnElement(addToWishListBtn);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void addToWishList() {
+        ElementActions.click(addToWishListBtn);
     }
 
-    public void addToCompareList() throws InterruptedException {
-        clickOnElement(addToCompareListBtn);
-        Thread.sleep(5000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public void addToCompareList() {
+        ElementActions.click(addToCompareListBtn);
     }
 
-    public void addToCar() throws InterruptedException {
-        clickOnElement(addToCartBtn);
-        Thread.sleep(5000);
+    public static void addToCar() {
+        ElementActions.click(addToCartBtn);
     }
 
     public void openAddReviewPage() {
-        clickOnElement(addYourReview);
+        ElementActions.click(addYourReview);
     }
 
     public void openCompareProductPage() {
-        driver.get("https://demo.nopcommerce.com/compareproducts");
+        DriverManager.navigate("https://demo.nopcommerce.com/compareproducts");
     }
-
 }

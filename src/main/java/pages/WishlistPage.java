@@ -1,22 +1,14 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-public class WishlistPage extends PageBase{
-    public WishlistPage(WebDriver driver) {
-        super(driver);
+public class WishlistPage {
+    private static final By removeFromCartCheckBox = By.name("removefromcart");
+    private static final By updateCart = By.name("updatecart");
+
+    public void removeFromCart() {
+        ElementActions.click(removeFromCartCheckBox);
+        ElementActions.click(updateCart);
     }
-    @FindBy(name = "removefromcart")
-    WebElement removeFromCartCheckBox;
-
-    @FindBy(name = "updatecart")
-    WebElement updateCart;
-
-    public void removeFromCart(){
-        clickOnElement(removeFromCartCheckBox);
-        clickOnElement(updateCart);
-    }
-
 }

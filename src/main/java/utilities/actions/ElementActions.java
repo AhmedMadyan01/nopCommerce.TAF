@@ -2,6 +2,7 @@ package utilities.actions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.driver_manager.DriverManager;
 import utilities.exception_handling.ExceptionHandling;
@@ -13,6 +14,7 @@ public class ElementActions {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
             Waits.waitForElementToBeClickable(elementLocator);
+            moveToElement(elementLocator);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -23,6 +25,7 @@ public class ElementActions {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
             Waits.waitForElementToBeClickable(elementLocator);
+            moveToElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).click();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -32,6 +35,7 @@ public class ElementActions {
     public static void sendKeys(By elementLocator, String text) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).sendKeys(text);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -41,6 +45,7 @@ public class ElementActions {
     public static void clear(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).clear();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -50,6 +55,7 @@ public class ElementActions {
     public static void selectByVisibleText(By elementLocator, String visibleText) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
             new Select(findElement(elementLocator)).selectByVisibleText(visibleText);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -59,6 +65,7 @@ public class ElementActions {
     public static void selectByValue(By elementLocator, String value) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
             new Select(findElement(elementLocator)).selectByValue(value);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -68,6 +75,7 @@ public class ElementActions {
     public static void selectByIndex(By elementLocator, int index) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
             new Select(findElement(elementLocator)).selectByIndex(index);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -77,9 +85,29 @@ public class ElementActions {
     public static String getText(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
         return DriverManager.getDriver().findElement(elementLocator).getText();
+    }
+
+    public static void scrollIntoView(By elementLocator) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+            new Actions(DriverManager.getDriver()).scrollToElement(findElement(elementLocator));
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+    }
+
+    public static Actions moveToElement(By elementLocator) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+        return new Actions(DriverManager.getDriver()).moveToElement(findElement(elementLocator));
     }
 }

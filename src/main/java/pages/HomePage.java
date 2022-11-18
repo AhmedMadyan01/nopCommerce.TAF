@@ -1,96 +1,78 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
+import utilities.driver_manager.DriverManager;
 
-public class HomePage extends PageBase {
-    public HomePage(WebDriver driver) {
-        super(driver);
-        actions = new Actions(driver);
-    }
+public class HomePage {
 
-    @FindBy(linkText = "Register")
-    WebElement registerLink;
+    public static final By registerLink = By.linkText("Register");
 
-    @FindBy(linkText = "Log in")
-    WebElement loginLink;
+    public static final By loginLink = By.linkText("Log in");
 
-    @FindBy(linkText = "Log out")
-    WebElement logoutLink;
+    public static final By logoutLink = By.linkText("Log out");
 
-    @FindBy(linkText = "My account")
-    WebElement myAccountLink;
+    public static final By myAccountLink = By.linkText("My account");
 
-    @FindBy(linkText = "Contact us")
-    WebElement contactUsLink;
+    public static final By contactUsLink = By.linkText("Contact us");
 
-    @FindBy(id = "customerCurrency")
-    WebElement changeCurrencyList;
+    public static final By changeCurrencyList = By.id("customerCurrency");
 
-    @FindBy(css = "span.cart-label")
-    WebElement shoppingCart;
+    public static final By shoppingCart = By.cssSelector("span.cart-label");
 
-    @FindBy(css = "a.ico-wishlist")
-    public WebElement wishlist;
 
-    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/a")
-    WebElement computersMenu;
+    public static final By wishlist = By.cssSelector("a.ico-wishlist");
 
-    @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[2]/a")
-    WebElement notebooksMenu;
+    public static final By computersMenu = By.xpath("/html/body/div[6]/div[2]/ul[1]/li[1]/a");
+
+    public static final By notebooksMenu = By.xpath("/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[2]/a");
+
 
     public static void openHomePage() {
-        driver.get("https://demo.nopcommerce.com/");
+        DriverManager.navigate("https://demo.nopcommerce.com/");
     }
 
     public static void openRegistrationPage() {
-        clickOnElement(registerLink);
+        ElementActions.click(registerLink);
     }
 
     public void openLoginPage() {
-        clickOnElement(loginLink);
+        ElementActions.click(loginLink);
     }
 
     public static void userLogout() {
-        clickOnElement(logoutLink);
+        ElementActions.click(logoutLink);
     }
 
     public void openMyAccountPage() {
-        clickOnElement(myAccountLink);
+        ElementActions.click(myAccountLink);
     }
 
     public void openContactUsPage() {
-        clickOnElement(contactUsLink);
+        ElementActions.click(contactUsLink);
     }
 
     public void changeCurrency(String currency) {
         if (currency.equals("us")) {
-            select = new Select(changeCurrencyList);
-            select.selectByIndex(0);
-            scrollTo("500");
+            ElementActions.selectByIndex(changeCurrencyList, 0);
         } else if (currency.equals("euro")) {
-            select = new Select(changeCurrencyList);
-            select.selectByIndex(1);
-            scrollTo("400");
+            ElementActions.selectByIndex(changeCurrencyList, 1);
         }
     }
 
     public void openNotebooksMenu() {
-        actions.moveToElement(computersMenu)
-                .moveToElement(notebooksMenu)
+        ElementActions.moveToElement(computersMenu)
+                .moveToElement(ElementActions.findElement(notebooksMenu))
                 .click()
                 .build()
                 .perform();
     }
 
     public void openWishlistPage() {
-        driver.get("https://demo.nopcommerce.com/wishlist");
+        DriverManager.navigate("https://demo.nopcommerce.com/wishlist");
     }
 
-    public void openShoppingCart() {
-        clickOnElement(shoppingCart);
+    public static void openShoppingCart() {
+        ElementActions.click(shoppingCart);
     }
 }

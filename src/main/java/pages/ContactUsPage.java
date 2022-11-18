@@ -1,33 +1,20 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-public class ContactUsPage extends PageBase{
-    public ContactUsPage(WebDriver driver) {
-        super(driver);
-    }
+public class ContactUsPage {
+    public static final By yourNameTxtBox = By.id("FullName");
+    public static final By emailTxtBox = By.id("Email");
+    public static final By enquiryTxtBox = By.id("Enquiry");
+    public static final By submitEnquiryBtn = By.cssSelector("input.button-1.contact-us-button");
+    public static final By enquiryConfirmationMessage = By.cssSelector("div.result");
 
-    @FindBy(id = "FullName")
-    WebElement yourNameTxtBox;
-
-    @FindBy(id = "Email")
-    WebElement emailTxtBox;
-
-    @FindBy(id = "Enquiry")
-    WebElement enquiryTxtBox;
-
-    @FindBy(css = "input.button-1.contact-us-button")
-    WebElement submitEnquiryBtn;
-
-    @FindBy(css = "div.result")
-    public WebElement enquiryConfirmationMessage;
-
-    public void sendEnquiry(String name, String email, String enquiry){
-        setTxtElement(yourNameTxtBox, name);
-        setTxtElement(emailTxtBox, email);  setTxtElement(enquiryTxtBox, enquiry);
-        clickOnElement(submitEnquiryBtn);
+    public void sendEnquiry(String name, String email, String enquiry) {
+        ElementActions.sendKeys(yourNameTxtBox, name);
+        ElementActions.sendKeys(emailTxtBox, email);
+        ElementActions.sendKeys(enquiryTxtBox, enquiry);
+        ElementActions.click(submitEnquiryBtn);
     }
 
 }

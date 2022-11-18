@@ -1,19 +1,19 @@
 package pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import utilities.actions.ElementActions;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class SearchPage extends PageBase {
-    public SearchPage(WebDriver driver) {
-        super(driver);
-    }
+public class SearchPage   {
+    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
 
     @FindBy(id = "small-searchterms")
     WebElement searchTxtBox;
@@ -25,12 +25,11 @@ public class SearchPage extends PageBase {
 
 
     public void searchProduct(String product) {
-        setTxtElement(searchTxtBox, product);
-        clickOnElement(searchBtn);
+        ElementActions.sendKeys(searchTxtBox, product);
+        ElementActions.click(searchBtn);
     }
-    public void searchProductByAutoSuggest(String product) {
-        setTxtElement(searchTxtBox, product);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public static void searchProductByAutoSuggest(String product) {
+        ElementActions.sendKeys(searchTxtBox, product);
         autoSuggestSearchMenu.get(0).click();
     }
 }

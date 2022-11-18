@@ -1,13 +1,13 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.actions.ElementActions;
 
-public class ProductReviewPage extends PageBase {
-    public ProductReviewPage(WebDriver driver) {
-        super(driver);
-    }
+public class ProductReviewPage   {
+    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
 
     @FindBy(id = "AddProductReview_Title")
     WebElement reviewTitleTxtBox;
@@ -21,9 +21,9 @@ public class ProductReviewPage extends PageBase {
     public WebElement reviewAddedMessage;
 
     public void reviewProduct(String title, String text, String rate) {
-        setTxtElement(reviewTitleTxtBox, title);
-        setTxtElement(reviewTextTxtBox, text);
-        clickOnElement(ratingOptionsRdBtn);
-        clickOnElement(submitReviewBtn);
+        ElementActions.sendKeys(reviewTitleTxtBox, title);
+        ElementActions.sendKeys(reviewTextTxtBox, text);
+        ElementActions.click(ratingOptionsRdBtn);
+        ElementActions.click(submitReviewBtn);
     }
 }

@@ -1,29 +1,16 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-import java.util.concurrent.TimeUnit;
-
-public class LoginPage extends PageBase {
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-
-    @FindBy(id = "Email")
-    WebElement emailTxtBox;
-
-    @FindBy(id = "Password")
-    WebElement passwordTxtBox;
-
-    @FindBy(css = "input.button-1.login-button")
-    WebElement loginBtn;
+public class LoginPage {
+    public static final By emailTxtBox = By.id("Email");
+    public static final By passwordTxtBox = By.id("Password");
+    public static final By loginBtn = By.cssSelector("input.button-1.login-button");
 
     public void login(String email, String password) {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        setTxtElement(emailTxtBox, email);
-        setTxtElement(passwordTxtBox, password);
-        clickOnElement(loginBtn);
+        ElementActions.sendKeys(emailTxtBox, email);
+        ElementActions.sendKeys(passwordTxtBox, password);
+        ElementActions.click(loginBtn);
     }
 }

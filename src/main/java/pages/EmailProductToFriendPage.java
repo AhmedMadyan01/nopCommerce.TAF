@@ -1,35 +1,18 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-public class EmailProductToFriendPage extends PageBase {
-    public EmailProductToFriendPage(WebDriver driver) {
-        super(driver);
-    }
-
-
-
-    @FindBy(id = "FriendEmail")
-    WebElement friendEmailTxtBox;
-
-    @FindBy(id = "YourEmailAddress")
-    WebElement userEmail;
-
-    @FindBy(id = "PersonalMessage")
-    WebElement personalMessageTxtBox;
-
-    @FindBy(css = "input.button-1.send-email-a-friend-button")
-    WebElement sendEmailBtn;
-
-
+public class EmailProductToFriendPage {
+    public static final By friendEmailTxtBox = By.id("FriendEmail");
+    public static final By userEmail = By.id("YourEmailAddress");
+    public static final By personalMessageTxtBox = By.id("PersonalMessage");
+    public static final By sendEmailBtn = By.cssSelector("input.button-1.send-email-a-friend-button");
 
     public void emailProductToFriend(String fEmail, String email, String message) {
-        setTxtElement(friendEmailTxtBox, fEmail);
-        setTxtElement(userEmail, email);
-        setTxtElement(personalMessageTxtBox, message);
-        clickOnElement(sendEmailBtn);
+        ElementActions.sendKeys(friendEmailTxtBox, fEmail);
+        ElementActions.sendKeys(userEmail, email);
+        ElementActions.sendKeys(personalMessageTxtBox, message);
+        ElementActions.click(sendEmailBtn);
     }
 }

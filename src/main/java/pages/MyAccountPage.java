@@ -1,38 +1,20 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import utilities.actions.ElementActions;
 
-import java.util.concurrent.TimeUnit;
-
-public class MyAccountPage extends PageBase {
-    public MyAccountPage(WebDriver driver) {
-        super(driver);
-    }
-
-    @FindBy(linkText = "Change password")
-    WebElement changePasswordLink;
-    @FindBy(id = "OldPassword")
-    WebElement oldPasswordTxtBox;
-
-    @FindBy(id = "NewPassword")
-    WebElement newPasswordTxtBox;
-
-    @FindBy(id = "ConfirmNewPassword")
-    WebElement confirmPasswordTxtBox;
-
-    @FindBy(css = "input.button-1.change-password-button")
-    WebElement changePasswordBtn;
+public class MyAccountPage {
+    public static final By changePasswordLink = By.linkText("Change password");
+    public static final By oldPasswordTxtBox = By.id("OldPassword");
+    public static final By newPasswordTxtBox = By.id("NewPassword");
+    public static final By confirmPasswordTxtBox = By.id("ConfirmNewPassword");
+    public static final By changePasswordBtn = By.cssSelector("input.button-1.change-password-button");
 
     public void changePassword(String oldPassword, String newPassword) {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        clickOnElement(changePasswordLink);
-        setTxtElement(oldPasswordTxtBox, oldPassword);
-        setTxtElement(newPasswordTxtBox, newPassword);
-        setTxtElement(confirmPasswordTxtBox, newPassword);
-        clickOnElement(changePasswordBtn);
+        ElementActions.click(changePasswordLink);
+        ElementActions.sendKeys(oldPasswordTxtBox, oldPassword);
+        ElementActions.sendKeys(newPasswordTxtBox, newPassword);
+        ElementActions.sendKeys(confirmPasswordTxtBox, newPassword);
+        ElementActions.click(changePasswordBtn);
     }
-
 }
-

@@ -31,6 +31,6 @@ public class EmailProductToFriendTest extends TestBase {
         searchPage.searchProductByAutoSuggest(product);
         productDetailsPage.openEmailFriendPage();
         emailProductToFriendPage.emailProductToFriend(fMail, email, message);
-        Thread.sleep(5000);
+        
     }
 }

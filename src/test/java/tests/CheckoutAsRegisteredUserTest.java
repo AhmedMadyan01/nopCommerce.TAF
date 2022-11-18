@@ -36,16 +36,16 @@ public class CheckoutAsRegisteredUserTest extends TestBase {
     @Test(priority = 2, dependsOnMethods = "UserCanRegister")
     public void UserCanSearchProduct() {
         HomePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product);
+        SearchPage.searchProductByAutoSuggest(product);
         Assert.assertTrue(productDetailsPage.currentProduct
                 .getText()
                 .contains(product));
     }
 
     @Test(priority = 3, dependsOnMethods = "UserCanSearchProduct")
-    public void UserCanAddProductToShippingCart() throws InterruptedException {
-        productDetailsPage.addToCar();
-        homePage.openShoppingCart();
+    public void UserCanAddProductToShippingCart() throws  {
+        ProductDetailsPage.addToCar();
+        HomePage.openShoppingCart();
         Assert.assertTrue(ElementActions.getText(productName).contains(product));
     }
 
@@ -63,13 +63,13 @@ public class CheckoutAsRegisteredUserTest extends TestBase {
     @Test(priority = 6, dependsOnMethods = "UserCanCheckout")
     public void UserCanDownloadPDFInvoice() {
         CheckoutPage.openOrderInformationPage();
-        orderInformation.downloadPDFInvoice();
+        OrderInformation.downloadPDFInvoice();
     }
 
     @Test(priority = 7, dependsOnMethods = "UserCanCheckout")
     public void UserCanPrintOrderInfo() {
         CheckoutPage.openOrderInformationPage();
-        orderInformation.printOrder();
+        OrderInformation.printOrder();
     }
 
     @Test(priority = 8, dependsOnMethods = "UserCanCheckout")
