@@ -8,9 +8,9 @@ public class ProductReviewPage {
     private static final By reviewTextTxtBox = By.id("AddProductReview_ReviewText");
     private static final By ratingOptionsRdBtn = By.id("addproductrating_3");
     private static final By submitReviewBtn = By.cssSelector("input.button-1.write-product-review-button");
-    private static final By reviewAddedMessage = By.cssSelector("div.result");
+    public static final By reviewAddedMessage = By.cssSelector("div.result");
 
-    public void reviewProduct(String title, String text, String rate) {
+    public static void reviewProduct(String title, String text, String rate) {
         ElementActions.sendKeys(reviewTitleTxtBox, title);
         ElementActions.sendKeys(reviewTextTxtBox, text);
         ElementActions.click(ratingOptionsRdBtn);
