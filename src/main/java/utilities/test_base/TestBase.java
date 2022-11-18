@@ -12,10 +12,11 @@ public abstract class TestBase {
     @BeforeSuite
     @Parameters({"browser"})
     public static void setDriver(@Optional("chrome") String browserName) {
-        if (browserName.equalsIgnoreCase("chrome")) {
-            DriverManager.launchChrome();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
-            DriverManager.launchFirefox();
+        switch (browserName) {
+            case "chrome" -> DriverManager.launchChrome();
+            case "firefox" -> DriverManager.launchFirefox();
+            case "edge" -> DriverManager.launchEdge();
+            default -> throw new IllegalStateException("Unexpected value: " + browserName);
         }
         DriverManager.navigate("https://demo.nopcommerce.com/");
     }

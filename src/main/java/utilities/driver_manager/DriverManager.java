@@ -2,6 +2,7 @@ package utilities.driver_manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utilities.exception_handling.ExceptionHandling;
 import utilities.waits.Waits;
@@ -23,6 +24,15 @@ public class DriverManager {
     public static void launchFirefox() {
         try {
             driver = new FirefoxDriver();
+            maximizeWindow();
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+    }
+
+    public static void launchEdge() {
+        try {
+            driver = new EdgeDriver();
             maximizeWindow();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
