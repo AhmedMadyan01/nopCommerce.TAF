@@ -5,6 +5,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 import pages.UserRegistrationPage;
+import utilities.test_base.TestBase;
 
 public class MyAccountTest extends TestBase {
     HomePage homePage;

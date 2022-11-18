@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.test_base.TestBase;
 
 public class EmailProductToFriendTest extends TestBase {
     HomePage homePage;

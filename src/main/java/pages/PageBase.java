@@ -14,11 +14,6 @@ public class PageBase {
     public Select select;
     public Actions actions;
 
-    public PageBase(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
     protected static void clickOnElement(WebElement element) {
         element.click();
     }

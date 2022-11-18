@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ContactUsPage;
 import pages.HomePage;
+import utilities.test_base.TestBase;
 
 public class ContactUsTest extends TestBase {
     HomePage homePage;

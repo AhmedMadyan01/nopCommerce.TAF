@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.test_base.TestBase;
 
 public class DownloadPDFInvoice extends TestBase {
     HomePage homePage;

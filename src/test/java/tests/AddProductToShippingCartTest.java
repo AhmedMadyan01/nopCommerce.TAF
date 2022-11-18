@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.test_base.TestBase;
 
 public class AddProductToShippingCartTest extends TestBase {
     HomePage homePage;
@@ -66,7 +67,7 @@ public class AddProductToShippingCartTest extends TestBase {
     public void UserCanRemoveProductFromShippingCart() {
         checkoutPage = new CheckoutPage(driver);
         checkoutPage.removeFormCart();
-        Assert.assertTrue(checkoutPage.emptyCartCheck
+        Assert.assertTrue(CheckoutPage.emptyCartCheck
                 .getText()
                 .contains("Your Shopping Cart is empty!"));
     }

@@ -6,6 +6,7 @@ import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 import pages.WishlistPage;
+import utilities.test_base.TestBase;
 
 public class AddToWishlistTest extends TestBase {
     HomePage homePage;

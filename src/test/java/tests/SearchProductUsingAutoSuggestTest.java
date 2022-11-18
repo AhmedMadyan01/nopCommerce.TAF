@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utilities.test_base.TestBase;
 
 public class SearchProductUsingAutoSuggestTest extends TestBase {
     SearchPage searchPage;

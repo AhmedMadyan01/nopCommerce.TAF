@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utilities.test_base.TestBase;
 
 public class ChangeCurrencyTest extends TestBase {
     HomePage homePage;

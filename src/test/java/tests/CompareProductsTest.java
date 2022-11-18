@@ -5,6 +5,7 @@ import pages.CompareProductsPage;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utilities.test_base.TestBase;
 
 public class CompareProductsTest extends TestBase {
     HomePage homePage;

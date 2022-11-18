@@ -7,6 +7,7 @@ import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 import pages.SearchResultPage;
+import utilities.test_base.TestBase;
 
 public class SearchProductTest extends TestBase {
     HomePage homePage;

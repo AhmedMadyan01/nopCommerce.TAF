@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.test_base.TestBase;
 
 public class PrintOrderInformationTest extends TestBase {
     HomePage homePage;

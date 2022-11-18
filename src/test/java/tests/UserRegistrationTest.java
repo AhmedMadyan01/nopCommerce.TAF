@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
+import utilities.test_base.TestBase;
 
 public class UserRegistrationTest extends TestBase {
     HomePage homePage;
