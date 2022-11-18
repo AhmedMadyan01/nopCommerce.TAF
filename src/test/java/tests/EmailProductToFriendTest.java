@@ -25,10 +25,10 @@ public class EmailProductToFriendTest extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         emailProductToFriendPage = new EmailProductToFriendPage(driver);
-        homePage.openRegistrationPage();
+        HomePage.openRegistrationPage();
         userRegistrationPage.userRegistration(fname,lname,email,password,password);
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product);
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product);
         productDetailsPage.openEmailFriendPage();
         emailProductToFriendPage.emailProductToFriend(fMail, email, message);
         

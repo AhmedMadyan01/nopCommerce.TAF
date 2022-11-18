@@ -20,7 +20,7 @@ public class ContactUsTest extends TestBase {
         homePage.scrollTo("5000");
         homePage.openContactUsPage();
         contactUsPage.sendEnquiry(name, email, enquiry);
-        Assert.assertTrue(contactUsPage.enquiryConfirmationMessage
+        Assert.assertTrue(ContactUsPage.enquiryConfirmationMessage
                 .getText().contains("Your enquiry has been successfully sent to the store owner."));
     }
 }

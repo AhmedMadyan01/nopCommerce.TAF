@@ -22,12 +22,12 @@ public class CompareProductsTest extends TestBase {
         productDetailsPage = new ProductDetailsPage(driver);
         compareProductsPage = new CompareProductsPage(driver);
 
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product1);
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product1);
         productDetailsPage.addToCompareList();
 
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product2);
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product2);
         productDetailsPage.addToCompareList();
         productDetailsPage.openCompareProductPage();
     }

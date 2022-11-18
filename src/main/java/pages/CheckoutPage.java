@@ -33,7 +33,7 @@ public class CheckoutPage {
     public static final By checkoutCompletedMessage = By.xpath("/html/body/div[6]/div[3]/div/div/div/div[2]/div/div[1]/strong");
     public static final By orderInformationPageLink = By.linkText("Click here for order details.");
 
-    public void removeFormCart() {
+    public static void removeFormCart() {
         ElementActions.click(removeCheckBox);
         ElementActions.click(updateShoppingBtn);
     }

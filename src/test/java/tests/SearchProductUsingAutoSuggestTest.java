@@ -25,8 +25,8 @@ public class SearchProductUsingAutoSuggestTest extends TestBase {
         /*
          * 1- Search Product
          * */
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct
                 .getText().contains(product));
     }
 }

@@ -13,8 +13,8 @@ public class UserRegistrationPage {
     private static final By registerBtn = By.id("register-button");
     private static final By registrationCompletedMessage = By.cssSelector("div.result");
 
-    public void userRegistration(String firstName, String lastName,
-                                 String email, String password, String confirmPassword) {
+    public static void userRegistration(String firstName, String lastName,
+                                        String email, String password, String confirmPassword) {
         ElementActions.click(maleGenderRdoBtn);
         ElementActions.sendKeys(firstNameTxtBox, firstName);
         ElementActions.sendKeys(lastNameTxtBox, lastName);

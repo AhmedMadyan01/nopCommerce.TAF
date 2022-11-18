@@ -19,8 +19,8 @@ public class ChangeCurrencyTest extends TestBase {
     public void UserCanSearchProductUsingAutoSuggest() {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct.getText().contains(product));
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct.getText().contains(product));
     }
 
     @Test(priority = 2, dependsOnMethods = "UserCanSearchProductUsingAutoSuggest")

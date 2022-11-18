@@ -28,13 +28,13 @@ public class UserRegistrationTest extends TestBase {
         /*
          * 1- User Registration
          * */
-        homePage.openRegistrationPage();
+        HomePage.openRegistrationPage();
         userRegistrationPage.userRegistration(firstName, lastName,
                 email, password, password);
         /*
          * 2- User logout
          * */
-        homePage.userLogout();
+        HomePage.userLogout();
         /*
          * 3- login with the registered user
          * */
@@ -43,6 +43,6 @@ public class UserRegistrationTest extends TestBase {
         /*
          * 4- User logout
          * */
-        homePage.userLogout();
+        HomePage.userLogout();
     }
 }
