@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utilities.actions.ElementActions;
 import utilities.test_base.TestBase;
 
 public class ChangeCurrencyTest extends TestBase {
@@ -19,15 +20,14 @@ public class ChangeCurrencyTest extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct
-                .getText().contains(product));
+        Assert.assertTrue(productDetailsPage.currentProduct.getText().contains(product));
     }
 
     @Test(priority = 2, dependsOnMethods = "UserCanSearchProductUsingAutoSuggest")
     public void UserCanChangeCurrency() {
         homePage = new HomePage(driver);
         homePage.changeCurrency(currency);
-        Assert.assertTrue(productDetailsPage.productPriceValue.getText().contains("Ђ"));
-        System.out.println(product + "  " + productDetailsPage.productPriceValue.getText());
+        Assert.assertTrue(ElementActions.getText(ProductDetailsPage.productPriceValue).contains("Ђ"));
+        System.out.println(product + "  " + ElementActions.getText(ProductDetailsPage.productPriceValue));
     }
 }
