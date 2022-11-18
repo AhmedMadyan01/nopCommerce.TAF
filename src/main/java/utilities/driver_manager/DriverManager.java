@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utilities.exception_handling.ExceptionHandling;
-import utilities.waits.Waits;
 
 import java.time.Duration;
 
