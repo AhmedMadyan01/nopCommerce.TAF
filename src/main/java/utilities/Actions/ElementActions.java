@@ -1,4 +1,4 @@
-package utilities.Actions;
+package utilities.actions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -51,6 +51,24 @@ public class ElementActions {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
             new Select(findElement(elementLocator)).selectByVisibleText(visibleText);
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+    }
+
+    public static void selectByValue(By elementLocator, String value) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+            new Select(findElement(elementLocator)).selectByValue(value);
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+    }
+
+    public static void selectByIndex(By elementLocator, int index) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+            new Select(findElement(elementLocator)).selectByIndex(index);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
