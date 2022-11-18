@@ -22,7 +22,7 @@ public class UserRegistrationPage extends PageBase {
     @FindBy(id = "register-button")
     WebElement registerBtn;
     @FindBy(css = "div.result")
-    public WebElement registrationCompletedMessage;
+    public static WebElement registrationCompletedMessage;
 
     public UserRegistrationPage(WebDriver driver) {
         super(driver);
@@ -30,7 +30,6 @@ public class UserRegistrationPage extends PageBase {
 
     public void userRegistration(String firstName, String lastName,
                                  String email, String password, String confirmPassword) {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         clickOnElement(maleGenderRdoBtn);
         setTxtElement(firstNameTxtBox, firstName);
         setTxtElement(lastNameTxtBox, lastName);

@@ -73,4 +73,13 @@ public class ElementActions {
             ExceptionHandling.handleException(exception);
         }
     }
+
+    public static String getText(By elementLocator) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+        return DriverManager.getDriver().findElement(elementLocator).getText();
+    }
 }
