@@ -7,14 +7,10 @@ import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
 import pages.SearchResultPage;
+import utilities.actions.ElementActions;
 import utilities.test_base.TestBase;
 
 public class SearchProductTest extends TestBase {
-    HomePage homePage;
-    SearchPage searchPage;
-    SearchResultPage searchResultPage;
-    ProductDetailsPage productDetailsPage;
-
     @DataProvider(name = "product")
     public static Object[][] productName() {
         return new Object[][]
@@ -24,16 +20,12 @@ public class SearchProductTest extends TestBase {
 
     @Test(priority = 1, alwaysRun = true, dataProvider = "product")
     public void UserCanRegisterSuccessfully(String product) {
-        homePage = new HomePage(driver);
-        searchPage = new SearchPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
-        searchResultPage = new SearchResultPage(driver);
         /*
          * 1- Search Product
          * */
-        homePage.openHomePage();
-        searchPage.searchProduct(product);
-        searchResultPage.openProductPageDetails();
-        Assert.assertTrue(productDetailsPage.currentProduct.getText().contains(product));
+        HomePage.openHomePage();
+        SearchPage.searchProduct(product);
+        SearchResultPage.openProductPageDetails();
+        Assert.assertTrue(ElementActions.getText(ProductDetailsPage.currentProduct).contains(product));
     }
 }

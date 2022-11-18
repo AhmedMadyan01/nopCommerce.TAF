@@ -1,40 +1,17 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import utilities.actions.ElementActions;
 
-import java.util.concurrent.TimeUnit;
-
 public class UserRegistrationPage {
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-    private static final By categories = By.xpath("/html/body/div[6]/div[3]/div[2]/div[1]/div[1]/div[1]/strong");
-
-    @FindBy(id = "gender-male")
-    WebElement maleGenderRdoBtn;
-    @FindBy(id = "FirstName")
-    WebElement firstNameTxtBox;
-    @FindBy(id = "LastName")
-    WebElement lastNameTxtBox;
-    @FindBy(id = "Email")
-    WebElement emailTxtBox;
-    @FindBy(id = "Password")
-    WebElement passwordTxtBox;
-    @FindBy(id = "ConfirmPassword")
-    WebElement confirmPasswordTxtBox;
-    @FindBy(id = "register-button")
-    WebElement registerBtn;
-    @FindBy(css = "div.result")
-    public static WebElement registrationCompletedMessage;
-
+    private static final By maleGenderRdoBtn = By.id("gender-male");
+    private static final By firstNameTxtBox = By.id("FirstName");
+    private static final By lastNameTxtBox = By.id("LastName");
+    private static final By emailTxtBox = By.id("Email");
+    private static final By passwordTxtBox = By.id("Password");
+    private static final By confirmPasswordTxtBox = By.id("ConfirmPassword");
+    private static final By registerBtn = By.id("register-button");
+    private static final By registrationCompletedMessage = By.cssSelector("div.result");
 
     public void userRegistration(String firstName, String lastName,
                                  String email, String password, String confirmPassword) {
