@@ -68,7 +68,7 @@ public class HomePage {
                 .perform();
     }
 
-    public void openWishlistPage() {
+    public static void openWishlistPage() {
         DriverManager.navigate("https://demo.nopcommerce.com/wishlist");
     }
 
