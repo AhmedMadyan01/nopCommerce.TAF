@@ -42,11 +42,11 @@ public class HomePage extends PageBase {
     @FindBy(xpath = "/html/body/div[6]/div[2]/ul[1]/li[1]/ul/li[2]/a")
     WebElement notebooksMenu;
 
-    public void openHomePage() {
+    public static void openHomePage() {
         driver.get("https://demo.nopcommerce.com/");
     }
 
-    public void openRegistrationPage() {
+    public static void openRegistrationPage() {
         clickOnElement(registerLink);
     }
 
@@ -54,7 +54,7 @@ public class HomePage extends PageBase {
         clickOnElement(loginLink);
     }
 
-    public void userLogout() {
+    public static void userLogout() {
         clickOnElement(logoutLink);
     }
 
