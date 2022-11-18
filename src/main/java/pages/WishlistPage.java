@@ -7,7 +7,7 @@ public class WishlistPage {
     private static final By removeFromCartCheckBox = By.name("removefromcart");
     private static final By updateCart = By.name("updatecart");
 
-    public void removeFromCart() {
+    public static void removeFromCart() {
         ElementActions.click(removeFromCartCheckBox);
         ElementActions.click(updateCart);
     }

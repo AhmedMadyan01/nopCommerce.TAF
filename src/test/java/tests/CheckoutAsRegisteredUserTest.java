@@ -37,13 +37,12 @@ public class CheckoutAsRegisteredUserTest extends TestBase {
     public void UserCanSearchProduct() {
         HomePage.openHomePage();
         SearchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct
-                .getText()
+        Assert.assertTrue(ElementActions.getText(ProductDetailsPage.currentProduct)
                 .contains(product));
     }
 
     @Test(priority = 3, dependsOnMethods = "UserCanSearchProduct")
-    public void UserCanAddProductToShippingCart() throws  {
+    public void UserCanAddProductToShippingCart() {
         ProductDetailsPage.addToCar();
         HomePage.openShoppingCart();
         Assert.assertTrue(ElementActions.getText(productName).contains(product));

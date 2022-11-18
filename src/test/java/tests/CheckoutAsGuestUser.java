@@ -3,14 +3,10 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utilities.actions.ElementActions;
 import utilities.test_base.TestBase;
 
 public class CheckoutAsGuestUser extends TestBase {
-    HomePage homePage;
-    SearchPage searchPage;
-    ProductDetailsPage productDetailsPage;
-    UserRegistrationPage userRegistrationPage;
-    CheckoutPage checkoutPage;
     String fname = "Ahmed";
     String lname = "Mahmoud";
     String email = "user5@test.com";
@@ -26,41 +22,29 @@ public class CheckoutAsGuestUser extends TestBase {
 
     @Test(priority = 1)
     public void UserCanSearchProduct() {
-        homePage = new HomePage(driver);
-        searchPage = new SearchPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
+
         HomePage.openHomePage();
         SearchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(ProductDetailsPage.currentProduct
-                .getText()
+        Assert.assertTrue(ElementActions.getText(ProductDetailsPage.currentProduct)
                 .contains(product));
     }
 
     @Test(priority = 2, dependsOnMethods = "UserCanSearchProduct")
     public void UserCanAddProductToShippingCart() throws InterruptedException {
-        productDetailsPage = new ProductDetailsPage(driver);
-        checkoutPage = new CheckoutPage(driver);
         ProductDetailsPage.addToCar();
         HomePage.openShoppingCart();
-        Assert.assertTrue(CheckoutPage.productName
-                .getText()
+        Assert.assertTrue(ElementActions.getText(CheckoutPage.productName)
                 .contains(product));
     }
 
     @Test(priority = 3, dependsOnMethods = "UserCanAddProductToShippingCart")
     public void UserCanChangeProductQuantityInShippingCart() {
-        homePage = new HomePage(driver);
-        searchPage = new SearchPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
-        checkoutPage = new CheckoutPage(driver);
         CheckoutPage.changeQuantity(Integer.parseInt(quantity));
     }
+
     @Test(priority = 5, dependsOnMethods = "UserCanChangeProductQuantityInShippingCart")
     public void UserCanCheckout() throws InterruptedException {
-        checkoutPage = new CheckoutPage(driver);
-        checkoutPage.checkoutAsGuestUser(fname, lname, email,country,city,address,zip,phone);
-        Assert.assertTrue(CheckoutPage.checkoutCompletedMessage
-                .getText().contains("Your order has been successfully processed!"));
+        CheckoutPage.checkoutAsGuestUser(fname, lname, email, country, city, address, zip, phone);
+        Assert.assertTrue(ElementActions.getText(CheckoutPage.checkoutCompletedMessage).contains("Your order has been successfully processed!"));
     }
-
 }

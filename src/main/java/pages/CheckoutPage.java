@@ -63,8 +63,8 @@ public class CheckoutPage {
         ElementActions.click(confirmBtn);
     }
 
-    public void checkoutAsGuestUser(String fName, String lName, String email, String country, String city,
-                                    String address, String zipCode, String phoneNumber) throws InterruptedException {
+    public static void checkoutAsGuestUser(String fName, String lName, String email, String country, String city,
+                                           String address, String zipCode, String phoneNumber) throws InterruptedException {
         ElementActions.click(termsOfServiceCheckBox);
         ElementActions.click(checkout);
         ElementActions.click(checkoutAsGuestBtn);

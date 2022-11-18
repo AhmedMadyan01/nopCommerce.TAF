@@ -17,7 +17,7 @@ public class ProductDetailsPage {
         ElementActions.click(emailFriendBtn);
     }
 
-    public void addToWishList() {
+    public static void addToWishList() {
         ElementActions.click(addToWishListBtn);
     }
 
