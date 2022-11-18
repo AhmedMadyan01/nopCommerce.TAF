@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
-import utilities.actions.ElementActions;
+import utilities.action.ElementActions;
 
 public class CheckoutPage extends PageBase {
 

@@ -1,4 +1,4 @@
-package utilities.actions;
+package utilities.action;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
