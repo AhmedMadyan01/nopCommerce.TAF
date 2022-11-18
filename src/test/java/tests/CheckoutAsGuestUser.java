@@ -29,9 +29,9 @@ public class CheckoutAsGuestUser extends TestBase {
         homePage = new HomePage(driver);
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct
                 .getText()
                 .contains(product));
     }
@@ -40,9 +40,9 @@ public class CheckoutAsGuestUser extends TestBase {
     public void UserCanAddProductToShippingCart() throws InterruptedException {
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        productDetailsPage.addToCar();
-        homePage.openShoppingCart();
-        Assert.assertTrue(checkoutPage.productName
+        ProductDetailsPage.addToCar();
+        HomePage.openShoppingCart();
+        Assert.assertTrue(CheckoutPage.productName
                 .getText()
                 .contains(product));
     }
@@ -53,13 +53,13 @@ public class CheckoutAsGuestUser extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.changeQuantity(Integer.parseInt(quantity));
+        CheckoutPage.changeQuantity(Integer.parseInt(quantity));
     }
     @Test(priority = 5, dependsOnMethods = "UserCanChangeProductQuantityInShippingCart")
     public void UserCanCheckout() throws InterruptedException {
         checkoutPage = new CheckoutPage(driver);
         checkoutPage.checkoutAsGuestUser(fname, lname, email,country,city,address,zip,phone);
-        Assert.assertTrue(checkoutPage.checkoutCompletedMessage
+        Assert.assertTrue(CheckoutPage.checkoutCompletedMessage
                 .getText().contains("Your order has been successfully processed!"));
     }
 

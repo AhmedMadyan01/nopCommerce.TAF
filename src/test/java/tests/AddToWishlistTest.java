@@ -20,9 +20,9 @@ public class AddToWishlistTest extends TestBase {
         homePage = new HomePage(driver);
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct.getText().contains(product));
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct.getText().contains(product));
     }
 
     @Test(priority = 2, dependsOnMethods = "UserCanSearchProduct")

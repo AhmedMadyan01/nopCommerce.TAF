@@ -14,8 +14,8 @@ public class NotebookHoverMenuTest extends TestBase {
     public void UserCanOpenNotebooksHoverMenu() {
         homePage = new HomePage(driver);
         notebooksPage = new NotebooksPage(driver);
-        homePage.openHomePage();
+        HomePage.openHomePage();
         homePage.openNotebooksMenu();
-        Assert.assertTrue(notebooksPage.notebookHeaderText.getText().contains("Notebooks"));
+        Assert.assertTrue(NotebooksPage.notebookHeaderText.getText().contains("Notebooks"));
     }
 }

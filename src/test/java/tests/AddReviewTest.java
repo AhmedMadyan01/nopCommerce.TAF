@@ -32,20 +32,20 @@ public class AddReviewTest extends TestBase {
     @Test(priority = 1)
     public void UserCanRegister() {
         homePage = new HomePage(driver);
-        homePage.openRegistrationPage();
+        HomePage.openRegistrationPage();
         userRegistrationPage = new UserRegistrationPage(driver);
         userRegistrationPage.userRegistration(fName, lName, email, password, password);
-        Assert.assertTrue(userRegistrationPage.registrationCompletedMessage
+        Assert.assertTrue(UserRegistrationPage.registrationCompletedMessage
                 .getText().contains("Your registration completed"));
     }
     /*2- Search product */
     @Test(priority = 2, dependsOnMethods = "UserCanRegister")
     public void UserCanSearchProduct() {
         productDetailsPage = new ProductDetailsPage(driver);
-        homePage.openHomePage();
+        HomePage.openHomePage();
         searchPage = new SearchPage(driver);
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct.getText().contains(product));
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct.getText().contains(product));
     }
     /*3- Add review */
     @Test(priority = 3, dependsOnMethods = "UserCanSearchProduct")
@@ -54,14 +54,14 @@ public class AddReviewTest extends TestBase {
         productDetailsPage.openAddReviewPage();
         productReviewPage = new ProductReviewPage(driver);
         productReviewPage.reviewProduct(title, text, rate);
-        Assert.assertTrue(productReviewPage.reviewAddedMessage.getText()
+        Assert.assertTrue(ProductReviewPage.reviewAddedMessage.getText()
                 .contains("Product review is successfully added."));
     }
     /*4- Logout */
     @Test(priority = 4, dependsOnMethods = "UserCanAddReview")
     public void UserCanLogout() {
         homePage = new HomePage(driver);
-        homePage.userLogout();
+        HomePage.userLogout();
     }
 
 }

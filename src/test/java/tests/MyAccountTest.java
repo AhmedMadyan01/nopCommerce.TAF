@@ -18,7 +18,7 @@ public class MyAccountTest extends TestBase {
     @Test(priority = 1, alwaysRun = true)
     public void UserCanRegisterSuccessfully() {
         homePage = new HomePage(driver);
-        homePage.openRegistrationPage();
+        HomePage.openRegistrationPage();
         userRegistrationPage = new UserRegistrationPage(driver);
         String fName = "test";
         String lName = "test";
@@ -38,7 +38,7 @@ public class MyAccountTest extends TestBase {
     @Test(priority = 3, dependsOnMethods = "userCanChanePassword")
     public void RegisteredUserCanLogout() {
         homePage = new HomePage(driver);
-        homePage.userLogout();
+        HomePage.userLogout();
     }
 
     @Test(priority = 4, dependsOnMethods = "RegisteredUserCanLogout")

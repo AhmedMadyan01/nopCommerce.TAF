@@ -28,11 +28,11 @@ public class PrintOrderInformationTest extends TestBase {
     public void UserCanRegister() {
         homePage = new HomePage(driver);
         userRegistrationPage = new UserRegistrationPage(driver);
-        homePage.openHomePage();
-        homePage.openRegistrationPage();
+        HomePage.openHomePage();
+        HomePage.openRegistrationPage();
         userRegistrationPage.userRegistration(fname, lname, email,
                 password, password);
-        Assert.assertTrue(userRegistrationPage.registrationCompletedMessage
+        Assert.assertTrue(UserRegistrationPage.registrationCompletedMessage
                 .getText()
                 .contains("Your registration completed"));
     }
@@ -42,9 +42,9 @@ public class PrintOrderInformationTest extends TestBase {
         homePage = new HomePage(driver);
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
-        homePage.openHomePage();
-        searchPage.searchProductByAutoSuggest(product);
-        Assert.assertTrue(productDetailsPage.currentProduct
+        HomePage.openHomePage();
+        SearchPage.searchProductByAutoSuggest(product);
+        Assert.assertTrue(ProductDetailsPage.currentProduct
                 .getText()
                 .contains(product));
     }
@@ -53,9 +53,9 @@ public class PrintOrderInformationTest extends TestBase {
     public void UserCanAddProductToShippingCart() throws InterruptedException {
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        productDetailsPage.addToCar();
-        homePage.openShoppingCart();
-        Assert.assertTrue(checkoutPage.productName
+        ProductDetailsPage.addToCar();
+        HomePage.openShoppingCart();
+        Assert.assertTrue(CheckoutPage.productName
                 .getText()
                 .contains(product));
     }
@@ -66,8 +66,8 @@ public class PrintOrderInformationTest extends TestBase {
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.changeQuantity(quantity);
-        Assert.assertTrue(checkoutPage.quantity
+        CheckoutPage.changeQuantity(quantity);
+        Assert.assertTrue(CheckoutPage.quantity
                 .getAttribute("value")
                 .contains(Integer.toString(quantity)));
     }
@@ -75,8 +75,8 @@ public class PrintOrderInformationTest extends TestBase {
     @Test(priority = 5, dependsOnMethods = "UserCanChangeProductQuantityInShippingCart")
     public void UserCanCheckout() throws InterruptedException {
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.checkoutAsRegisteredUser(fname, lname, email, country, city, address, zip, phone);
-        Assert.assertTrue(checkoutPage.checkoutCompletedMessage
+        CheckoutPage.checkoutAsRegisteredUser(fname, lname, email, country, city, address, zip, phone);
+        Assert.assertTrue(CheckoutPage.checkoutCompletedMessage
                 .getText().contains("Your order has been successfully processed!"));
     }
 
@@ -84,13 +84,13 @@ public class PrintOrderInformationTest extends TestBase {
     public void UserCanPrintOrderInfo() {
         orderInformation = new OrderInformation(driver);
         checkoutPage = new CheckoutPage(driver);
-        checkoutPage.openOrderInformationPage();
-        orderInformation.printOrder();
+        CheckoutPage.openOrderInformationPage();
+        OrderInformation.printOrder();
     }
 
     @Test(priority = 7, dependsOnMethods = "UserCanCheckout")
     public void UserCanLogout() {
         homePage = new HomePage(driver);
-        homePage.userLogout();
+        HomePage.userLogout();
     }
 }
