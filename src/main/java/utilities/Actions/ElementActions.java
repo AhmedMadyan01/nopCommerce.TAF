@@ -3,8 +3,8 @@ package utilities.actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import utilities.driver_manager.DriverManager;
 import utilities.exception_handling.ExceptionHandling;
-import utilities.test_base.TestBase;
 import utilities.waits.Waits;
 
 public class ElementActions {
@@ -16,14 +16,14 @@ public class ElementActions {
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
-        return TestBase.getDriver().findElement(elementLocator);
+        return DriverManager.getDriver().findElement(elementLocator);
     }
 
     public static void click(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
             Waits.waitForElementToBeClickable(elementLocator);
-            TestBase.getDriver().findElement(elementLocator).click();
+            DriverManager.getDriver().findElement(elementLocator).click();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -32,7 +32,7 @@ public class ElementActions {
     public static void sendKeys(By elementLocator, String text) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
-            TestBase.getDriver().findElement(elementLocator).sendKeys(text);
+            DriverManager.getDriver().findElement(elementLocator).sendKeys(text);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -41,7 +41,7 @@ public class ElementActions {
     public static void clear(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
-            TestBase.getDriver().findElement(elementLocator).clear();
+            DriverManager.getDriver().findElement(elementLocator).clear();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
