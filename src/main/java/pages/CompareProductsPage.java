@@ -12,6 +12,7 @@ public class CompareProductsPage {
     public static final By clearList = By.cssSelector("a.clear-list");
     public static final By noData = By.cssSelector("div.no-data");
     @FindBy(tagName = "tr")
+    static
     List<WebElement> rows;
 
     @FindBy(tagName = "td")
