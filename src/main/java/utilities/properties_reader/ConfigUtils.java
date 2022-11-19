@@ -8,7 +8,7 @@ public class ConfigUtils {
         URl = PropertiesDataManager.getProperty("nopCommerce_URL", CONFIG_PROPERTIES_FILE_PATH);
     }
 
-    public static String get_URI() {
+    public static String getURL() {
         setConfigProperties();
         return URl;
     }
