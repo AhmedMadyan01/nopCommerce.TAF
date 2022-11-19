@@ -6,6 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utilities.exception_handling.ExceptionHandling;
 
+import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager {
@@ -49,7 +50,8 @@ public class DriverManager {
 
     public static void navigate(String url) {
         try {
-            driver.get(url);
+//            driver.get(url);
+            driver.navigate().to(new URL(url));
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }

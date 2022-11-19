@@ -4,6 +4,9 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utilities.Helper;
 import utilities.driver_manager.DriverManager;
+import utilities.exception_handling.ExceptionHandling;
+import utilities.properties_reader.ConfigUtils;
+import utilities.properties_reader.PropertiesDataManager;
 
 import java.io.IOException;
 
@@ -18,17 +21,27 @@ public abstract class TestBase {
             case "edge" -> DriverManager.launchEdge();
             default -> throw new IllegalStateException("Unexpected value: " + browserName);
         }
-        DriverManager.navigate(System.getProperty("nopCommerce_URL"));
+        System.out.println("URL: " + ConfigUtils.get_URI());
+        DriverManager.navigate(ConfigUtils.get_URI());
     }
 
-//    @AfterMethod
-//    public void takesScreenshots(ITestResult result) throws IOException {
-//        if (result.getStatus() == ITestResult.FAILURE) {
-//            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Failed");
-//        } else if (result.getStatus() == ITestResult.SUCCESS) {
-//            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Passed");
-//        }
-//    }
+    @AfterMethod
+    public void takesScreenshots(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            try {
+                Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Failed");
+            } catch (IOException e) {
+                ExceptionHandling.handleException(e);
+                ;
+            }
+        } else if (result.getStatus() == ITestResult.SUCCESS) {
+            try {
+                Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Passed");
+            } catch (IOException e) {
+                ExceptionHandling.handleException(e);
+            }
+        }
+    }
 
     @AfterSuite
     public void tearDownDriver() {
