@@ -6,7 +6,6 @@ import utilities.Helper;
 import utilities.driver_manager.DriverManager;
 import utilities.exception_handling.ExceptionHandling;
 import utilities.properties_reader.ConfigUtils;
-import utilities.properties_reader.PropertiesDataManager;
 
 import java.io.IOException;
 
@@ -21,8 +20,8 @@ public abstract class TestBase {
             case "edge" -> DriverManager.launchEdge();
             default -> throw new IllegalStateException("Unexpected value: " + browserName);
         }
-        System.out.println("URL: " + ConfigUtils.get_URI());
-        DriverManager.navigate(ConfigUtils.get_URI());
+        System.out.println("URL: " + ConfigUtils.getURL());
+        DriverManager.navigate(ConfigUtils.getURL());
     }
 
     @AfterMethod
