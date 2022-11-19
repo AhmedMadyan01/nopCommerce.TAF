@@ -21,14 +21,14 @@ public abstract class TestBase {
 //        DriverManager.navigate(System.getProperty("nopCommerce_URL"));
     }
 
-    @AfterMethod
-    public void takesScreenshots(ITestResult result) throws IOException {
-        if (result.getStatus() == ITestResult.FAILURE) {
-            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Failed");
-        } else if (result.getStatus() == ITestResult.SUCCESS) {
-            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Passed");
-        }
-    }
+//    @AfterMethod
+//    public void takesScreenshots(ITestResult result) throws IOException {
+//        if (result.getStatus() == ITestResult.FAILURE) {
+//            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Failed");
+//        } else if (result.getStatus() == ITestResult.SUCCESS) {
+//            Helper.captureScreenshot(DriverManager.getDriver(), result.getName() + "-Passed");
+//        }
+//    }
 
     @AfterSuite
     public void tearDownDriver() {

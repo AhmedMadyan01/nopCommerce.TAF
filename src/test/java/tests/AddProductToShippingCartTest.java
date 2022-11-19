@@ -1,26 +1,30 @@
 package tests;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import utilities.actions.ElementActions;
 import utilities.test_base.TestBase;
 
+import java.util.Random;
+
 public class AddProductToShippingCartTest extends TestBase {
 
     String fname = "Ahmed";
     String lname = "Mahmoud";
     String password = "123456";
-    String email = "user3@test.com";
+    String email = RandomStringUtils.randomAlphabetic(4);
     String product = "Apple MacBook Pro 13-inch";
     String quantity = "5";
 
     @Test(priority = 1)
-    public void UserCanRegister() {
+    public void UserCanRegister() throws InterruptedException {
         HomePage.openHomePage();
         HomePage.openRegistrationPage();
-        UserRegistrationPage.userRegistration(fname, lname, email,
+        UserRegistrationPage.userRegistration(fname, lname, email + "@test.com",
                 password, password);
+        Thread.sleep(10000);
         Assert.assertTrue(ElementActions.getText(UserRegistrationPage.registrationCompletedMessage)
                 .contains("Your registration completed"));
     }

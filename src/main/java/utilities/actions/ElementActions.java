@@ -13,8 +13,8 @@ public class ElementActions {
     public static WebElement findElement(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
-            Waits.waitForElementToBeClickable(elementLocator);
-            moveToElement(elementLocator);
+//            Waits.waitForElementToBeClickable(elementLocator);
+//            moveToElement(elementLocator);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -23,9 +23,7 @@ public class ElementActions {
 
     public static void click(By elementLocator) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            Waits.waitForElementToBeClickable(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).click();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -34,8 +32,7 @@ public class ElementActions {
 
     public static void sendKeys(By elementLocator, String text) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).sendKeys(text);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -44,8 +41,7 @@ public class ElementActions {
 
     public static void clear(By elementLocator) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).clear();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -54,8 +50,7 @@ public class ElementActions {
 
     public static void selectByVisibleText(By elementLocator, String visibleText) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             new Select(findElement(elementLocator)).selectByVisibleText(visibleText);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -64,8 +59,7 @@ public class ElementActions {
 
     public static void selectByValue(By elementLocator, String value) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             new Select(findElement(elementLocator)).selectByValue(value);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -74,8 +68,7 @@ public class ElementActions {
 
     public static void selectByIndex(By elementLocator, int index) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
             new Select(findElement(elementLocator)).selectByIndex(index);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -84,8 +77,7 @@ public class ElementActions {
 
     public static String getText(By elementLocator) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -94,8 +86,8 @@ public class ElementActions {
 
     public static String getAttribute(By elementLocator, String attribute) {
         try {
-            Waits.waitForElementToBeVisible(elementLocator);
-            moveToElement(elementLocator);
+            findElement(elementLocator);
+
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
