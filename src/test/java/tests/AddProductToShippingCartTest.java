@@ -19,12 +19,11 @@ public class AddProductToShippingCartTest extends TestBase {
     String quantity = "5";
 
     @Test(priority = 1)
-    public void UserCanRegister() throws InterruptedException {
+    public void UserCanRegister() {
         HomePage.openHomePage();
         HomePage.openRegistrationPage();
         UserRegistrationPage.userRegistration(fname, lname, email + "@test.com",
                 password, password);
-        Thread.sleep(10000);
         Assert.assertTrue(ElementActions.getText(UserRegistrationPage.registrationCompletedMessage)
                 .contains("Your registration completed"));
     }
