@@ -9,7 +9,7 @@ public class EmailProductToFriendPage {
     public static final By personalMessageTxtBox = By.id("PersonalMessage");
     public static final By sendEmailBtn = By.cssSelector("input.button-1.send-email-a-friend-button");
 
-    public void emailProductToFriend(String fEmail, String email, String message) {
+    public static void emailProductToFriend(String fEmail, String email, String message) {
         ElementActions.sendKeys(friendEmailTxtBox, fEmail);
         ElementActions.sendKeys(userEmail, email);
         ElementActions.sendKeys(personalMessageTxtBox, message);

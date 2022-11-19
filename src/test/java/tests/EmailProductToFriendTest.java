@@ -5,11 +5,6 @@ import pages.*;
 import utilities.test_base.TestBase;
 
 public class EmailProductToFriendTest extends TestBase {
-    HomePage homePage;
-    UserRegistrationPage userRegistrationPage;
-    SearchPage searchPage;
-    ProductDetailsPage productDetailsPage;
-    EmailProductToFriendPage emailProductToFriendPage;
     String fname = "Ahmed";
     String lname = "Mahmoud";
     String password = "123456";
@@ -19,18 +14,12 @@ public class EmailProductToFriendTest extends TestBase {
     String product = "Apple MacBook Pro 13-inch";
 
     @Test
-    public void UserCanEmailProductToFriend() throws InterruptedException {
-        homePage = new HomePage(driver);
-        userRegistrationPage = new UserRegistrationPage(driver);
-        searchPage = new SearchPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
-        emailProductToFriendPage = new EmailProductToFriendPage(driver);
+    public void UserCanEmailProductToFriend() {
         HomePage.openRegistrationPage();
-        userRegistrationPage.userRegistration(fname,lname,email,password,password);
+        UserRegistrationPage.userRegistration(fname, lname, email, password, password);
         HomePage.openHomePage();
         SearchPage.searchProductByAutoSuggest(product);
-        productDetailsPage.openEmailFriendPage();
-        emailProductToFriendPage.emailProductToFriend(fMail, email, message);
-        
+        ProductDetailsPage.openEmailFriendPage();
+        EmailProductToFriendPage.emailProductToFriend(fMail, email, message);
     }
 }

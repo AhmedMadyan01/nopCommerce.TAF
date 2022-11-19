@@ -17,11 +17,11 @@ public class CompareProductsPage {
     @FindBy(tagName = "td")
     List<WebElement> cols;
 
-    public void clearCompareList() {
+    public static void clearCompareList() {
         ElementActions.click(clearList);
     }
 
-    public void compareProduct() {
+    public static void compareProduct() {
         System.out.println(rows.size());
         for (WebElement row : rows) {
             System.out.println(row.getText() + "\t");
