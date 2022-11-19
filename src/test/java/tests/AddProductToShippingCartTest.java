@@ -24,6 +24,7 @@ public class AddProductToShippingCartTest extends TestBase {
         HomePage.openRegistrationPage();
         UserRegistrationPage.userRegistration(fname, lname, email + "@test.com",
                 password, password);
+        System.out.println(email);
         Assert.assertTrue(ElementActions.getText(UserRegistrationPage.registrationCompletedMessage)
                 .contains("Your registration completed"));
     }
