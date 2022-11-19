@@ -6,7 +6,7 @@ import utilities.driver_manager.DriverManager;
 
 public class HomePage {
 
-    public static final By registerLink = By.linkText("Register");
+    public static final By registerLink = By.className("ico-register");
 
     public static final By loginLink = By.linkText("Log in");
 
