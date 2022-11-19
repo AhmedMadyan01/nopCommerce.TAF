@@ -10,7 +10,7 @@ public class MyAccountPage {
     public static final By confirmPasswordTxtBox = By.id("ConfirmNewPassword");
     public static final By changePasswordBtn = By.cssSelector("input.button-1.change-password-button");
 
-    public void changePassword(String oldPassword, String newPassword) {
+    public static void changePassword(String oldPassword, String newPassword) {
         ElementActions.click(changePasswordLink);
         ElementActions.sendKeys(oldPasswordTxtBox, oldPassword);
         ElementActions.sendKeys(newPasswordTxtBox, newPassword);

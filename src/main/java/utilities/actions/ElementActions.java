@@ -92,6 +92,16 @@ public class ElementActions {
         return DriverManager.getDriver().findElement(elementLocator).getText();
     }
 
+    public static String getAttribute(By elementLocator, String attribute) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+            moveToElement(elementLocator);
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+        return DriverManager.getDriver().findElement(elementLocator).getAttribute(attribute);
+    }
+
     public static void scrollIntoView(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);

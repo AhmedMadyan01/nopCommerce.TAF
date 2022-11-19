@@ -13,7 +13,7 @@ public class ProductDetailsPage {
     public static final By productPriceValue = By.cssSelector("div.prices");
     public static final By addYourReview = By.linkText("Add your review");
 
-    public void openEmailFriendPage() {
+    public static void openEmailFriendPage() {
         ElementActions.click(emailFriendBtn);
     }
 
@@ -21,7 +21,7 @@ public class ProductDetailsPage {
         ElementActions.click(addToWishListBtn);
     }
 
-    public void addToCompareList() {
+    public static void addToCompareList() {
         ElementActions.click(addToCompareListBtn);
     }
 
@@ -33,7 +33,7 @@ public class ProductDetailsPage {
         ElementActions.click(addYourReview);
     }
 
-    public void openCompareProductPage() {
+    public static void openCompareProductPage() {
         DriverManager.navigate("https://demo.nopcommerce.com/compareproducts");
     }
 }

@@ -36,7 +36,7 @@ public class HomePage {
         ElementActions.click(registerLink);
     }
 
-    public void openLoginPage() {
+    public static void openLoginPage() {
         ElementActions.click(loginLink);
     }
 
@@ -44,11 +44,11 @@ public class HomePage {
         ElementActions.click(logoutLink);
     }
 
-    public void openMyAccountPage() {
+    public static void openMyAccountPage() {
         ElementActions.click(myAccountLink);
     }
 
-    public void openContactUsPage() {
+    public static void openContactUsPage() {
         ElementActions.click(contactUsLink);
     }
 
@@ -60,7 +60,7 @@ public class HomePage {
         }
     }
 
-    public void openNotebooksMenu() {
+    public static void openNotebooksMenu() {
         ElementActions.moveToElement(computersMenu)
                 .moveToElement(ElementActions.findElement(notebooksMenu))
                 .click()

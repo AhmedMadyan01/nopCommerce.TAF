@@ -43,7 +43,7 @@ public class CheckoutPage {
     }
 
     public static void checkoutAsRegisteredUser(String fName, String lName, String email, String country, String city,
-                                                String address, String zipCode, String phoneNumber) throws InterruptedException {
+                                                String address, String zipCode, String phoneNumber) {
         ElementActions.click(termsOfServiceCheckBox);
         ElementActions.click(checkout);
         ElementActions.sendKeys(billingNewAddressFirstName, fName);
@@ -64,7 +64,7 @@ public class CheckoutPage {
     }
 
     public static void checkoutAsGuestUser(String fName, String lName, String email, String country, String city,
-                                           String address, String zipCode, String phoneNumber) throws InterruptedException {
+                                           String address, String zipCode, String phoneNumber) {
         ElementActions.click(termsOfServiceCheckBox);
         ElementActions.click(checkout);
         ElementActions.click(checkoutAsGuestBtn);
