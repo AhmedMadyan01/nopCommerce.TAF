@@ -3,7 +3,9 @@ package utilities.actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import utilities.driver_manager.DriverManager;
 import utilities.exception_handling.ExceptionHandling;
 import utilities.waits.Waits;
@@ -13,8 +15,7 @@ public class ElementActions {
     public static WebElement findElement(By elementLocator) {
         try {
             Waits.waitForElementToBeVisible(elementLocator);
-//            Waits.waitForElementToBeClickable(elementLocator);
-//            moveToElement(elementLocator);
+//            moveToElement(elementLocator).perform();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }
@@ -24,6 +25,7 @@ public class ElementActions {
     public static void click(By elementLocator) {
         try {
             findElement(elementLocator);
+            Waits.waitForElementToBeClickable(elementLocator);
             DriverManager.getDriver().findElement(elementLocator).click();
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
@@ -87,7 +89,6 @@ public class ElementActions {
     public static String getAttribute(By elementLocator, String attribute) {
         try {
             findElement(elementLocator);
-
         } catch (Exception exception) {
             ExceptionHandling.handleException(exception);
         }

@@ -5,7 +5,7 @@ import utilities.actions.ElementActions;
 import utilities.driver_manager.DriverManager;
 
 public class ProductDetailsPage {
-    public static final By currentProduct = By.cssSelector("strong.current-item");
+    public static final By currentProduct = By.className("product-title");
     public static final By emailFriendBtn = By.cssSelector("input.button-2.email-a-friend-button");
     public static final By addToCartBtn = By.id("add-to-cart-button-4");
     public static final By addToWishListBtn = By.id("add-to-wishlist-button-4");
