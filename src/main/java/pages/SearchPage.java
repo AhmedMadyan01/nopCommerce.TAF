@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SearchPage {
     private static final By searchTxtBox = By.id("small-searchterms");
-    private static final By searchBtn = By.cssSelector("small-searchterms");
+    private static final By searchBtn = By.xpath("//button[@class='button-1 search-box-button']");
     @FindBy(css = "li.ui-menu-item")
     static
     List<WebElement> autoSuggestSearchMenu;

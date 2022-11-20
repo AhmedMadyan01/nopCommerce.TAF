@@ -32,7 +32,7 @@ public class AddProductToShippingCartTest extends TestBase {
     @Test(priority = 2, dependsOnMethods = "UserCanRegister")
     public void UserCanSearchProduct() {
         HomePage.openHomePage();
-        SearchPage.searchProductByAutoSuggest(product);
+        SearchPage.searchProduct(product);
         Assert.assertTrue(ElementActions.getText(ProductDetailsPage.currentProduct)
                 .contains(product));
     }
