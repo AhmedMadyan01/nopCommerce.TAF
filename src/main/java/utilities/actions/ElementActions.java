@@ -9,6 +9,8 @@ import utilities.driver_manager.DriverManager;
 import utilities.exception_handling.ExceptionHandling;
 import utilities.waits.Waits;
 
+import java.util.List;
+
 public class ElementActions {
 
     public static WebElement findElement(By elementLocator) {
@@ -18,6 +20,15 @@ public class ElementActions {
             ExceptionHandling.handleException(exception);
         }
         return DriverManager.getDriver().findElement(elementLocator);
+    }
+
+    public static List<WebElement> findElements(By elementLocator) {
+        try {
+            Waits.waitForElementToBeVisible(elementLocator);
+        } catch (Exception exception) {
+            ExceptionHandling.handleException(exception);
+        }
+        return DriverManager.getDriver().findElements(elementLocator);
     }
 
     public static void click(By elementLocator) {
